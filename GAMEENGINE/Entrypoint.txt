@@ -1,0 +1,13 @@
+An application has an entrypoint
+An application needs to start somewhere, which is called the entrypoint
+Set of code that happens when the application starts up
+For example, C++ and C# has the main function 
+Churn, in this example are dll files
+
+When writing "Churn is born" to the console, the test application Application.cpp
+made its own entrypoint with the main function. Ideally we want Churn to handle that 
+itself
+
+
+After the changes, Churn itself handles the entrypoint, making for less work for the 
+Sandbox application, only having to create a Sandbox class and instance, and CreateApplication;

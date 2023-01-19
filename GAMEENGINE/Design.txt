@@ -1,0 +1,10 @@
+Entry point
+Application layer
+Window layer
+  Input 
+  Events
+Renderer
+Renderer API abstraction
+Debugging Support
+Scripting language (High level language)
+Entity Component System (ECS)
