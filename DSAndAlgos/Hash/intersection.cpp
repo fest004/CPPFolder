@@ -22,26 +22,36 @@ int main()
 std::vector<int> intersection(std::vector<int> nums1, std::vector<int> nums2)
 {
   std::vector<int> ans;
+
+  // Making a map to check if current num2 index is in nums1 with O(1) lookup time
   std::unordered_map<int, int> nums1map; // num : index
 
+  // Placing each number in map accordingly
   for (int i = 0; i < nums1.size(); i++)
   {
     nums1map.emplace(nums1[i], i);
   }
 
+  
   for (int i = 0; i < nums2.size(); i++)
   {
 
+    // If current nums2 index is not in the map, it is therefore not 
+    // in the nums1 array and we can skip
     if (nums1map.find(nums2[i]) == nums1map.end())
       continue;
 
+    // If nums2 number is already in answer array, it can be skipped to
+    // avoid duplicates
     if (std::find(ans.begin(), ans.end(), nums2[i]) != ans.end())
       continue;
 
 
+    // If the two roadblocks are passed we can push to the answer array
     ans.push_back(nums2[i]);
   }
 
+  // return when looped through nums2
   return ans;
 }
 
