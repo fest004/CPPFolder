@@ -22,6 +22,8 @@ std::vector<std::vector<std::string>> GroupAnagrams(std::vector<std::string> str
 
   for (int i = 0; i < strs.size(); i++)
   {
+    std::vector<std::string> tempGroupedAnagram;
+
     if (std::count(accountedIndexes.begin(), accountedIndexes.end(), i)) 
       break;
 

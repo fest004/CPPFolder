@@ -2,13 +2,13 @@
 #include <vector>
 
 
-bool validAnagram(std::string s);
+bool validPalindrome(std::string s);
 
 int main()
 {
   //Test case 0 - Should be true
   std::string case0 = "tacocat";
-  bool case0Bool = validAnagram(case0);
+  bool case0Bool = validPalindrome(case0);
   if (case0Bool)
   {
     std::cout << "Case 0 Success" << std::endl;
@@ -19,7 +19,7 @@ int main()
 
   //Test case 1 - Should be true
   std::string case1 = "wallaw";
-  bool case1Bool = validAnagram(case1);
+  bool case1Bool = validPalindrome(case1);
   if (case1Bool)
   {
     std::cout << "Case 1 Success" << std::endl;
@@ -31,7 +31,7 @@ int main()
 
   //Test case 2 - Should be false
   std::string case2 = "FelixErKul";
-  bool case2Bool = validAnagram(case2);
+  bool case2Bool = validPalindrome(case2);
   if (!case2Bool)
   {
     std::cout << "Case 2 Success" << std::endl;
@@ -51,7 +51,7 @@ int main()
 
 //Takes in string, compares first and last indece on first loop
 // second and second to last on second loop and so on
-bool validAnagram(std::string s)
+bool validPalindrome(std::string s)
 {
   int endI = s.size() - 1;
   for (int startI = 0; startI < s.length() / 2 - 1; startI++)
