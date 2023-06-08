@@ -24,13 +24,17 @@ std::vector<int> twoSum(std::vector<int>& nums, int target)
   // else add nums[i] to the map 
   for (int numsIte = 0; numsIte < nums.size(); numsIte++)
   {
-    int complement = nums[numsIte] - target; // Value that would need to be in the map to pair with nums[numsIterator] for target
+    // Value that would need to be in the map to pair with nums[numsIterator] for target
+    int complement = nums[numsIte] - target; 
+
+    // If complement is already in the map we add them to ans array and break loop to return it
     if (map.find(complement) != map.end())
     {
       targetIndeces.push_back(map[complement]);
       targetIndeces.push_back(nums[numsIte]);
       break;
     } else {
+      // If not already in map we insert and go agane
       map.insert(nums[numsIte], numsIte);
     }
   }

@@ -23,8 +23,10 @@ TreeNode *invertTree(TreeNode *root) {
   if (root == nullptr)
     return nullptr;
 
+  // Swaps the left and right nodechilds of the head we pass in
   std::swap(root->left, root->right);
 
+  // Keep passing in children as a head until they have no more children 
   invertTree(root->left);
   invertTree(root->right);
 

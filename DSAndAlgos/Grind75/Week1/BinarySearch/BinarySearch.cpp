@@ -31,52 +31,27 @@ int BinarySearch(std::vector<int> nums, int target)
 
   while (low <= high)
   {
+    // Finds the index between current high and low. 
+    // First iteration middle of array. 
     int mid = low + (high - low) / 2;
 
     if (nums[mid] < target) {
+      // If current middle is less than the target, we know the target is on the left side from current middle,
+      // and we can exclude what is right of middle
         low = mid + 1;
     } else if (nums[mid] > target) {
+      // Same but on other side, if nums[middle] is greater we can exclude the left side from middle. 
         high = mid - 1;
     } else {
+      // If there are neither of these, it will equal mid
         return mid;
     }
-
   }
 
+
+  // If low ever catches up to high, it means target is not in array
   return -1;
 }
-
-// int BinarySearch(std::vector<int> nums, int target)
-// {
-//   int ans;
-//   int currentIndex = nums.size() / 2;
-//
-//   if (nums[currentIndex] == target)
-//     return currentIndex;
-//
-//   for (int i = 0; i < nums.size(); i++) {
-//
-//     if (currentIndex > nums.size() + 1)
-//       currentIndex = nums.size();
-//
-//     if (nums[currentIndex] > target) {
-//       currentIndex = currentIndex / 2;
-//     }
-//
-//     if (nums[currentIndex] < target) {
-//       currentIndex = (currentIndex / 2) + currentIndex;
-//     }
-//
-//     if (nums[currentIndex] == target)
-//       return currentIndex;
-//   }
-//
-//
-//
-//   return -1;
-// }
-//
-
 
 void TestBinarySearch(std::vector<int> nums, int target, int expected, int caseNumber)
 {

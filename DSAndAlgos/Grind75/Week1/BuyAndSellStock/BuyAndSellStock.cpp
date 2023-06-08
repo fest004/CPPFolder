@@ -27,16 +27,21 @@ int maxProfit(std::vector<int>& prices)
 {
   int buyIndex = 0; //Left
   int sellIndex = 0; //Right
-  int profit = 0;
+  int profit = 0; //Current profit
 
+  // Check until buyIndex pointer has check all the way to the end
   while (sellIndex < prices.size())
   {
+    // Update profit if current pointers have higher profit
     if (prices[sellIndex] - prices[buyIndex] > profit)
       profit = prices[sellIndex] - prices[buyIndex];
 
+
+    // If sellIndex minus buyIndex is less than zero we can update buyindex to look for greater prospects
     if (prices[sellIndex] - prices[buyIndex] < 0)
       buyIndex = sellIndex;
 
+    // Always move right pointer by one at end of iteration to keep checking for better prices
     sellIndex++;
   }
 return profit;
